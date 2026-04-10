@@ -1,0 +1,4 @@
+1-
+Se implementó el patrón de diseño Singleton a través de un Pool de conexiones con la librería mssql. Esto optimiza los recursos del servidor al reutilizar conexiones activas. Además, se garantizó la seguridad del proyecto separando las credenciales en un archivo .env gestionado por dotenv y excluido del control de versiones mediante .gitignore
+2-
+Para el requisito de transaccionalidad, se implementó un endpoint de transferencia de fondos. Se utilizó el objeto sql.Transaction() nativo de la librería mssql para asegurar el principio ACID de la base de datos. Se validan existencias y saldos previos. Si ocurre cualquier excepción en el proceso de actualización de registros, el bloque catch ejecuta un transaction.rollback(), garantizando que el saldo de los usuarios nunca quede inconsistente frente a fallas del sistema o errores en tiempo de ejecución
