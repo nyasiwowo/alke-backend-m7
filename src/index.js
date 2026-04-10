@@ -6,12 +6,18 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 app.use('/api', userRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api', uploadRoutes);
+app.use('/uploads', express.static('uploads'));
+
 
 // Ruta de prueba inicial
 app.get('/', (req, res) => {

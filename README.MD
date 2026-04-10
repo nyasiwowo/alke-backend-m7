@@ -1,4 +1,17 @@
-1-
-Se implementó el patrón de diseño Singleton a través de un Pool de conexiones con la librería mssql. Esto optimiza los recursos del servidor al reutilizar conexiones activas. Además, se garantizó la seguridad del proyecto separando las credenciales en un archivo .env gestionado por dotenv y excluido del control de versiones mediante .gitignore
-2-
-Para el requisito de transaccionalidad, se implementó un endpoint de transferencia de fondos. Se utilizó el objeto sql.Transaction() nativo de la librería mssql para asegurar el principio ACID de la base de datos. Se validan existencias y saldos previos. Si ocurre cualquier excepción en el proceso de actualización de registros, el bloque catch ejecuta un transaction.rollback(), garantizando que el saldo de los usuarios nunca quede inconsistente frente a fallas del sistema o errores en tiempo de ejecución
+# 💼 AlkeWallet Backend - API RESTful Profesional
+
+Este proyecto es una API RESTful desarrollada con Node.js y Express, diseñada para gestionar las operaciones de una billetera virtual (AlkeWallet). Implementa un CRUD completo, operaciones transaccionales seguras, autenticación mediante JWT y gestión de archivos sobre una base de datos relacional SQL Server.
+
+## 🚀 Tecnologías Utilizadas
+* **Node.js & Express:** Estructura del servidor y enrutamiento.
+* **SQL Server (mssql):** Motor de base de datos relacional.
+* **Dotenv:** Gestión de variables de entorno para proteger datos sensibles.
+* **JWT (jsonwebtoken) & bcryptjs:** Autenticación segura y validación de contraseñas.
+* **Multer:** Middleware para la gestión, validación y subida de archivos físicos al servidor.
+* **Cors:** Middleware para permitir peticiones de origen cruzado.
+
+## ⚙️ Instalación y Configuración
+
+1. **Clonar el repositorio y descargar dependencias:**
+   ```bash
+   npm install

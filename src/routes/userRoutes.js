@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getUsers, updateUser, deleteUser } = require('../controllers/userController');
 const { getUsers, updateUser, deleteUser, transferirSaldo } = require('../controllers/userController');
+const verifyToken = require('../middlewares/authMiddlewares');
 
 // Definición de los endpoints
 router.get('/usuarios', getUsers);
